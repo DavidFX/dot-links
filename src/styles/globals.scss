@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap");
+
+//! Form
+.form-data {
+  @apply flex w-72 flex-col gap-4 bg-light p-8 font-sora outline outline-2 outline-dark xs:w-96;
+  box-shadow: 4px 4px #020b11;
+
+  input {
+    @apply w-full rounded-none border-2 border-dark p-2 outline-none transition-all duration-300 ease-in-out;
+    &:focus {
+      @apply -translate-y-1;
+      box-shadow: 4px 4px #020b11;
+    }
+  }
+
+  p {
+    @apply text-xs text-dark;
+  }
+
+  .link {
+    @apply text-secondary underline transition-all duration-500 ease-in-out;
+  }
+}
+
+//! Buttons
+.btn {
+  @apply px-4 py-2 font-sora font-medium text-dark outline outline-2 outline-dark transition-all duration-300 ease-in-out;
+
+  &:hover {
+    @apply -translate-y-1;
+    box-shadow: 4px 4px #020b11;
+  }
+
+  &-primary {
+    @extend .btn;
+    @apply bg-primary;
+  }
+
+  &-white {
+    @extend .btn;
+    @apply bg-light;
+  }
+
+  &-secondary {
+    @extend .btn;
+    @apply bg-secondary;
+  }
+
+  &-tertiary {
+    @extend .btn;
+    @apply bg-tertiary;
+  }
+}
+
+//! Modal
+.modal {
+  @apply absolute z-50 flex h-screen w-screen items-center justify-center bg-dark bg-opacity-50 font-sora;
+
+  &-content {
+    @apply flex flex-col gap-4 p-8 font-sora outline outline-2 outline-dark xs:w-96;
+    box-shadow: 4px 4px #020b11;
+
+    &-error {
+      @extend .modal-content;
+      @apply bg-secondary text-light;
+    }
+
+    &-success {
+      @extend .modal-content;
+      @apply bg-primary text-dark;
+    }
+  }
+}
+
+//! Navbar
+.nav-link {
+  @apply relative font-sora font-medium text-dark transition-all duration-300 ease-in-out;
+
+  &:after {
+    @apply absolute -bottom-px h-1 w-0 bg-dark transition-all duration-300 ease-in-out;
+    content: "";
+    left: 0;
+  }
+
+  &:hover:after {
+    @apply w-full;
+  }
+
+  &-active {
+    @extend .nav-link;
+
+    &:after {
+      @apply w-full;
+    }
+  }
+}
+
+// Links on show page
+.link-show {
+  @apply w-1/2 bg-light  p-8 text-center font-sora  font-medium text-dark outline outline-2 outline-dark transition-all duration-300 ease-in-out hover:bg-primary;
+  box-shadow: 4px 4px #020b11;
+}
